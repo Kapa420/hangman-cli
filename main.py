@@ -32,7 +32,7 @@ def HangMan():
     word = get_word().replace("\n","")
     index = index_letters(word)
     secret_word = ["_ " for i in word]
-    lifes = 3
+    lifes = 5
     while lifes > 0:
         system("clear")
         print(ascii_art[0])
@@ -49,6 +49,10 @@ def HangMan():
             print(" Pierdes dos vidas! ")
             lifes -= 2   
             input()
+        if "_ " not in secret_word:
+            system("clear")
+            system(f"echo 'Felicitaciones, la palabra era {word}' | cowsay | lolcat")
+            break
     else:    
         system(f" echo 'Perdiste, la palabra era {word}' | cowsay | lolcat")
 
